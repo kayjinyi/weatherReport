@@ -52,7 +52,7 @@ var displayCities = function(){
         list.addEventListener("click",function(event){
             var cityname = event.target.textContent
             getWeather(cityname);
-            getFutureWeather(cityname);  
+            getFutureWeather(cityname);   
         })
         
         searchTerm.append(list);
@@ -88,15 +88,12 @@ fetch(apiUrl).then(function(response){
         console.log(lonE);
         localStorage.setItem("latE", latE);
         localStorage.setItem("lonE", lonE);
+        getUV(readableData.name)
         
-        console.log(readableData.name)
-        // getUV(readableData.name);
-     uvnumber = getUV(readableData.name)
-        console.log(uvnumber);
-        // uv.textContent = "UV Index: ";
-        // cityEl.append(uv)
+        uv.textContent = `UV Index: ${uvi}`;
+        cityEl.append(uv)
 })}
- var getUV = function(cityname) {
+var getUV = function(cityname) {
     var latSaved = localStorage.getItem("latE");
     var lonSaved = localStorage.getItem("lonE");
         var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latSaved}&lon=${lonSaved}&exclude={part}&appid=${APIKey}`;
@@ -104,9 +101,9 @@ fetch(apiUrl).then(function(response){
         fetch(apiUrl).then(function(response){
             return response.json()
         }).then(function(readableData){
-            console.log(readableData.daily[0].uvi)
-            // console.log(readableData.daily[0].uvi)
-            //  return readableData.daily[0].uvi
+            console.log(readableData)
+            uv.textContent = `UV Index: ${readableData[0].uvi}`;  
+            console.log(uv);
                        })
 
 }
@@ -121,7 +118,6 @@ var lonSaved = localStorage.getItem("lonE");
     }).then(function(readableData){
         console.log(readableData)
         futureEl.innerHTML ="";
-        console.log(readableData.daily[0].uvi)
         for(let i=1; i< 6; i++){
             // console.log() </div>
                     var divEl = document.createElement("div")

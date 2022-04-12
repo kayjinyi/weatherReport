@@ -19,6 +19,6 @@ THEN I am again presented with current and future conditions for that city
 
 The following image shows the web application's appearance and functionality:
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./weatherReport.png)
 
-Deployed API
+Deployed https://kayjinyi.github.io/weatherReport/

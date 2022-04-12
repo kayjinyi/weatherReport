@@ -42,10 +42,16 @@
                         <button class="btn btn-success" id = "searchBtn" type="button" placeholder ="city">Search</button>
                       </div>
                     </form>
+                    <br/> 
+                    <div class="card">
+                      <button id="clearBtn">Clear</button>
+                      <div class="card-body" style = "display:flex">
+                       
+                      <ul class="list-group b-2 my-2" id ="listGroup"> 
 
-                     <ul class="list-group" id ="listGroup"> 
-
-                    </ul>
+                      </ul>
+                    </div>
+                   </div>
                 </div>
 
                 <div class="col col-9 bg-dark bg-opacity-25 py-2">
@@ -56,10 +62,10 @@
                           
                       </div>
                     </div>
-
-                    <div class="card-group col col-12 bg-dark bg-opacity-25 py-2">
+                    <div class="card"></div>
+                    <div class="card-group col col-12 bg-dark bg-opacity-25 py-2" style = "display:flex; justify-content: space-between" >
                        <div>
-                        <div id="futureWeather" style = "display:flex; justify-content: space-between;">
+                        <div  class="card-body" id="futureWeather" style = "display:flex; justify-content: space-between;">
 
                         <!-- <div class="card">
                             <div class="card-body">
@@ -102,7 +108,9 @@
                               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                             </div>
                           </div> -->
+                      
                       </div>
+                    </div>
                 </div>
             </div>
         </div>
