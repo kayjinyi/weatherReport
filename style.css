@@ -23,3 +23,9 @@ h1,h2,h3,h4,h5{
     margin-top: 5px;
     
 }
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}

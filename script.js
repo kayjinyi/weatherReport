@@ -91,22 +91,32 @@ fetch(apiUrl).then(function(response){
         
         console.log(readableData.name)
         // getUV(readableData.name);
-     uvnumber = getUV(readableData.name)
-        console.log(uvnumber);
-        // uv.textContent = "UV Index: ";
-        // cityEl.append(uv)
+        getUV(readableData.name).then(function(uvnumber){
+            console.log(uvnumber);
+            uv.textContent = "";
+            var uvSpan = document.createElement('span');
+            uvSpan.textContent="UV Index: "+uvnumber;
+            uv.appendChild(uvSpan)
+            if(uvnumber>3){
+                uvSpan.classList.add('red')
+            }else{
+                uvSpan.classList.add('green')
+            }
+            cityEl.append(uv)
+     })
+        
 })}
  var getUV = function(cityname) {
     var latSaved = localStorage.getItem("latE");
     var lonSaved = localStorage.getItem("lonE");
         var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latSaved}&lon=${lonSaved}&exclude={part}&appid=${APIKey}`;
         console.log(apiUrl);
-        fetch(apiUrl).then(function(response){
+        return fetch(apiUrl).then(function(response){
             return response.json()
         }).then(function(readableData){
             console.log(readableData.daily[0].uvi)
             // console.log(readableData.daily[0].uvi)
-            //  return readableData.daily[0].uvi
+             return readableData.daily[0].uvi
                        })
 
 }
@@ -130,7 +140,7 @@ var lonSaved = localStorage.getItem("lonE");
                     divEl.classList.add("futureCard")
                     //$(divEl).addClass("futureCard")
                     var dateEl = document.createElement("h4");
-                    // var icon =document.createElement("img");
+                    var icon = document.createElement("img");
                     var temp =document.createElement("p");          
                     var windspeed =document.createElement("p");
                     var humidity =document.createElement("p");
@@ -140,10 +150,11 @@ var lonSaved = localStorage.getItem("lonE");
                     temp.textContent =`Temp: ${readableData.daily[i].temp.day} F`
                     windspeed.textContent=`Wind: ${readableData.daily[i].wind_speed} MPH`;
                     humidity.textContent = `Humidity: ${readableData.daily[i].humidity}%`;
-                    // icon.setAttribute("src", "readableData.daily[i].weather[0].icon");
+                    icon.setAttribute("src", "http://openweathermap.org/img/w/"+ readableData.daily[i].weather[0].icon +".png"
+                    );
                     futureEl.append(divEl);
                     divEl.append(dateEl);
-                    // divEl.append(icon);
+                    divEl.append(icon);
                     divEl.append(temp);
                     divEl.append(windspeed);
                     divEl.append(humidity);
