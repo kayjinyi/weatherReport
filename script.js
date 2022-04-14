@@ -98,12 +98,12 @@ fetch(apiUrl).then(function(response){
             uvSpan.textContent="UV Index: "+uvnumber;
             uv.appendChild(uvSpan)
             if(uvnumber>5){
-                uvSpan.classList.add('red')
+                uv.classList.add('red')
             }else if (4 <= uvnumber <= 5){
-                uvSpan.classList.add('yellow')
+                uv.classList.add('yellow')
             }else
             {
-                uvSpan.classList.add('green')
+                uv.classList.add('green')
             }
             cityEl.append(uv)
      })
