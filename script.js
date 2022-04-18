@@ -93,10 +93,14 @@ fetch(apiUrl).then(function(response){
         // getUV(readableData.name);
         getUV(readableData.name).then(function(uvnumber){
             console.log(uvnumber);
+            console.log(uv)
             uv.textContent = "";
-            var uvSpan = document.createElement('span');
-            uvSpan.textContent="UV Index: "+uvnumber;
-            uv.appendChild(uvSpan)
+            // var uvSpan = document.createElement('span');
+            uv.innerHTML=`UV Index: <span id="uv-Span">${uvnumber}</span>`;
+            // uv.appendChild(uvSpan)
+            
+            cityEl.append(uv)
+            var uvSpan = document.querySelector('#uv-Span')
             if(uvnumber>5){
                 uvSpan.classList.add('red')
             }else if (4 <= uvnumber <= 5){
@@ -105,7 +109,6 @@ fetch(apiUrl).then(function(response){
             {
                 uvSpan.classList.add('green')
             }
-            cityEl.append(uv)
      })
         
 })}
