@@ -18,6 +18,7 @@
     ></script>
 </head>
 <body>
+  <container>
     <header>
         <div class="jumbotron bg-cyan">
             <div class="container d-flex justify-content-center bg-info align-content-center ">
@@ -33,7 +34,7 @@
     <main>
         <div class="container">
             <div class="row vh-100">
-                <div class="col col-3 bg-success bg-opacity-25 py-2">
+                <section class="col-12 bg-success bg-opacity-25 py-2">
                     <h3>Search for a City</h3>
                     <form action="" id="userForm">
                     <input class="form-control my-2" id = "cityName" type="text" placeholder="city name" />
@@ -43,7 +44,7 @@
                       </div>
                     </form>
                     <br/> 
-                    <div class="card">
+                    <div class="col-12 card">
                       <button id="clearBtn">Clear</button>
                       <div class="card-body" style = "display:flex">
                        
@@ -52,26 +53,23 @@
                       </ul>
                     </div>
                    </div>
-                </div>
+                </section>
 
-                <div class="col col-9 bg-dark bg-opacity-25 py-2">
+                <section class="col col-12 bg-dark bg-opacity-25 py-2">
                     <h3>Showing results</h3>
                     <div class="card">
                         <div class="card-body">
-                          <h4 class="card-title" id = "searchCity"></h4>
-                          
-                      </div>
-                    </div>
-                    <div class="card"></div>
-                    <div class="card-group col col-12 bg-dark bg-opacity-25 py-2" style = "display:flex; justify-content: space-between" >
-                       <div>
-                        <div  class="card-body" id="futureWeather" style = "display:flex; justify-content: space-between;">
+                          <h4 class="card-title" id = "searchCity"></h4> 
+                        </div>
+                    </div>    
 
+                    <div class="card-group col col-12 bg-dark bg-opacity-25 py-2" style = "display:flex; justify-content: space-between" >
                        
-                      
-                      </div>
+                        <div  class="card-body" id="futureWeather" style = "display:flex; justify-content: space-between;">
+                     
+                       </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </main>

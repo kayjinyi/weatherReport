@@ -144,6 +144,8 @@ var lonSaved = localStorage.getItem("lonE");
                     divEl.style.border = "rgb(122, 242, 242) 5px solid";
                     divEl.style.margin = "rgb(122, 242, 242) 5px solid";
                     divEl.classList.add("futureCard")
+                    divEl.setAttribute("class", "col-lg-2 col-12 d-flex flex-wrap");
+                    // divEl.addClass("col-lg-3 col-12 flex-wrap")
                     //$(divEl).addClass("futureCard")
                     var dateEl = document.createElement("h4");
                     var icon = document.createElement("img");
