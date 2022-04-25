@@ -118,7 +118,7 @@ var getWeather = function (cityname) {
 var getUV = function (cityname) {
   var latSaved = localStorage.getItem("latE");
   var lonSaved = localStorage.getItem("lonE");
-  var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latSaved}&lon=${lonSaved}&exclude={part}&appid=${APIKey}`;
+  var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latSaved}&lon=${lonSaved}&appid=${APIKey}`;
   console.log(apiUrl);
   return fetch(apiUrl)
     .then(function (response) {
@@ -153,8 +153,10 @@ var getFutureWeather = function (cityname) {
         divEl.setAttribute("class", "col-lg-2 col-12 d-flex flex-wrap");
         // divEl.addClass("col-lg-3 col-12 flex-wrap")
         //$(divEl).addClass("futureCard")
+        var header = document.createElement("div");
         var dateEl = document.createElement("h4");
         var icon = document.createElement("img");
+        var body = document.createElement("div");
         var temp = document.createElement("p");
         var windspeed = document.createElement("p");
         var humidity = document.createElement("p");
@@ -173,11 +175,13 @@ var getFutureWeather = function (cityname) {
             ".png"
         );
         futureEl.append(divEl);
-        divEl.append(dateEl);
-        divEl.append(icon);
-        divEl.append(temp);
-        divEl.append(windspeed);
-        divEl.append(humidity);
+        divEl.append(header);
+        divEl.append(body);
+        header.append(dateEl);
+        header.append(icon);
+        body.append(temp);
+        body.append(windspeed);
+        body.append(humidity);
       }
     });
 };
