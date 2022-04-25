@@ -168,7 +168,7 @@ var getFutureWeather = function (cityname) {
         humidity.textContent = `Humidity: ${readableData.daily[i].humidity}%`;
         icon.setAttribute(
           "src",
-          "http://openweathermap.org/img/w/" +
+          "https://openweathermap.org/img/w/" +
             readableData.daily[i].weather[0].icon +
             ".png"
         );
